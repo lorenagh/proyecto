@@ -31,33 +31,33 @@ class contexto(persona):
         self.fisica = 0
         self.recreacion = 0
 
-    def Sueño(sueño):
+    def Sueño(self, sueño):
         # int = horas de sueño
         # si sueño < 8, recomendar cuidar hábitos de sueño
         # si sueño < 6, recomendar tomar una siesta
         self.sueño = sueño
     
-    def Comida(comida):
+    def Comida(self, comida):
         # bool = has comido bien hoy?
         # si es False, recomendar comer
         self.comida = comida
 
-    def Agua(agua):
+    def Agua(self, agua):
         # bool = has tomado suficiente agua hoy?
         # si es False, recomendar tomar agua
         self.agua = agua
 
-    def Metas(metas):
+    def Metas(self, metas):
         # bool = vas al día con tus metas de trabajo?
         # si es False, recomendar tomarse un momento para re-organizar el día
         self.metas = metas
 
-    def Fisica(fisica):
+    def Fisica(self, fisica):
         # bool = has hecho actividad física hoy?
         # si es False, recomendar salir a caminar
         self.fisica = fisica
 
-    def Recreacion(recreacion):
+    def Recreacion(self, recreacion):
         # bool = has tenido recreación hoy?
         # si es False, hacer segunda pregunta
         # bool = tienes planificado un tiempo de recreación hoy?
@@ -117,7 +117,47 @@ class contexto(persona):
             if self.recreacion == 'si':
                 pass
             elif self.recreacion == 'no':
-                recomendacion = recomendacion + 'Tómate un ratito para ' + self.hobbie + 'y disfrutar'
+                recomendacion = recomendacion + 'Tómate un ratito para ' + self.hobbie + ' y disfrutar'
+        return recomendacion
+
+    def imagenes(self, sentimiento):
+        '''
+        Entrega pandas.dataframe con links del sentimiento correspondiente
+        columnas: link, sentimiento
+        '''
+        links = pd.read_table('imagenes.txt', sep = ' ')
+        links = links[links['sentimiento'] == sentimiento]
+        return links
+
+    def plot(self, sentimiento):
+        links = self.imagenes(sentimiento).links
+
+        i = np.random.randint(len(links))
+
+        opener = urllib.request.URLopener()
+        opener.addheader('User-Agent', 'whatever')
+        path_hrb = './cute_images/'
+        
+        if (os.path.isdir(path_hrb)==False):
+            os.mkdir(path_hrb)
+            pass
+
+        filename, headers = opener.retrieve(links.iloc[i],path_hrb + "cute_{}.jpg".format(i))
+
+        img = mpimg.imread(path_hrb + "cute_{}.jpg".format(i))
+            
+        cute_img = plt.figure(figsize = (15,15)) 
+        ax = plt.subplot(111)
+        plt.imshow(img)
+
+        print(self.recomendacion())
+
+        t = plt.text(0.5, 0.3, self.recomendacion(), transform=ax.transAxes, fontsize=25, 
+                        color='black', ha='center', va='center')
+        t.set_bbox(dict(facecolor='white', alpha=0.8, edgecolor='white', boxstyle="round"))
+        plt.axis('off')
+        plt.show()
+
 
 
 def inputs():
@@ -125,6 +165,7 @@ def inputs():
     nombre = input('¿Cómo te llamas?')
     sentimiento = input('¿Cómo te sientes hoy? (feliz, triste, cansade, tranquile, ansiose) ')
     hobbie = input('¿Qué te gusta hacer en tu tiempo libre?')
+    color = input('Cuál es tu color favorito? (blue, green, red, cyan, magenta, yellow, black)')
     persona = contexto(nombre, sentimiento, hobbie)
 
     print('Responde la siguiente pregunta con un número entero')
@@ -148,40 +189,7 @@ def inputs():
     f_recreacion = input('¿Has hecho alguna actividad recreativa hoy? (si, no)')
     persona.recreacion = f_recreacion
 
-    color = input('----------------------\n'
-                  +'what color do you want for the font? (blue/purple/black/cyan/green/yellow) ')
+    #persona.
+    persona.plot(sentimiento)
 
-def imagenes(sentimiento):
-       
-    links = pd.read_table('imagenes.txt', sep = ' ')
-    links = links[links.sentimiento == sentimiento]
-    return links
-
-
-def plot(sentimiento):
-    links = imagenes(sentimiento).links
-
-    i = np.random.randint(len(links))
-
-    opener = urllib.request.URLopener()
-    opener.addheader('User-Agent', 'whatever')
-    path_hrb = './cute_images/'
-    
-    if (os.path.isdir(path_hrb)==False):
-        os.mkdir(path_hrb)
-        pass
-
-    filename, headers = opener.retrieve(links.iloc[i],path_hrb + "cute_{}.jpg".format(i))
-
-    img = mpimg.imread(path_hrb + "cute_{}.jpg".format(i))
-        
-    cute_img = plt.figure(figsize = (15,15)) 
-    ax = plt.subplot(111)
-    plt.imshow(img)
-
-    #cambiar texto por el creado en fun Bday_text
-    t = plt.text(0.5, 0.3, 'Hola, como estas' , transform=ax.transAxes, fontsize=25, 
-                     color='black', ha='center', va='center') 
-    t.set_bbox(dict(facecolor='white', alpha=0.8, edgecolor='white', boxstyle="round"))
-    plt.axis('off')
-    plt.show()
+inputs()

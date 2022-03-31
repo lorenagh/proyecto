@@ -1,21 +1,29 @@
-links sentimiento 
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6737-1024x1024.jpg feliz 
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6738-1024x1024.jpg ansiose
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6736-1024x1024.jpg triste 
-https://ladybluebottle.com/wp-content/uploads/2022/01/453F1DBE-78AC-47C7-A2BD-A29A7FE396A0-1024x1024.jpeg tranquilo
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6741-1024x1024.jpg cansade
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6740-1024x1024.jpg triste
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6598-1024x1024.png cansade
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6742-1024x1024.jpg tranquile
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6739-1024x1024.jpg cansade
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6743-1024x1024.jpg triste
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6749-1024x1024.jpg cansade
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6748-1024x1024.jpg triste
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6753-1024x1024.jpg triste
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6751-1024x1024.jpg feliz
+links sentimiento
+
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6737-1024x1024.jpg feliz
 https://ladybluebottle.com/wp-content/uploads/2022/01/img_6745-1024x1024.jpg feliz
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6752-1024x1024.jpg feliz
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6750-1024x1024.jpg ansiose
+
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6748-1024x1024.jpg tranquile
+
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6741-1024x1024.jpg cansade
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6598-1024x1024.png cansade
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6739-1024x1024.jpg cansade
+https://ladybluebottle.com/wp-content/uploads/2022/01/453F1DBE-78AC-47C7-A2BD-A29A7FE396A0-1024x1024.jpeg cansade
+
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6740-1024x1024.jpg triste
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6736-1024x1024.jpg triste
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6743-1024x1024.jpg triste
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6753-1024x1024.jpg triste
 https://ladybluebottle.com/wp-content/uploads/2022/01/img_6744-1024x1024.jpg triste
 https://ladybluebottle.com/wp-content/uploads/2022/01/img_6746-1024x1024.jpg triste
-https://ladybluebottle.com/wp-content/uploads/2022/01/img_6754-1024x1024.jpg triste
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6752-1024x1024.jpg triste
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6741-1024x1024.jpg triste
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6749-1024x1024.jpg triste
+
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6738-1024x1024.jpg ansiose
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6751-1024x1024.jpg ansiose
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6739-1024x1024.jpg ansiose
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6736-1024x1024.jpg ansiose
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6743-1024x1024.jpg ansiose
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6744-1024x1024.jpg ansiose
+https://ladybluebottle.com/wp-content/uploads/2022/01/img_6746-1024x1024.jpg ansiose
