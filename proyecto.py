@@ -21,20 +21,20 @@ class contexto(persona):
     # recreación
     def __init__(self, nombre, sentimiento, hobbie):
         super().__init__()
-        self.nombre = nombre # name of the person
+        self.nombre = nombre  # name of the person
         self.sentimiento = sentimiento
-        self.sueño = 0
+        self.hobbie = hobbie
+        self.sueño = -1.0
         self.comida = 0
         self.agua = 0
         self.metas = 0
         self.fisica = 0
         self.recreacion = 0
-        self.hobbie = hobbie
 
     def Sueño(sueño):
         # int = horas de sueño
-        # si sueño <= 8, recomendar cuidar hábitos de sueño
-        # si sueño <= 6, recomendar tomar una siesta
+        # si sueño < 8, recomendar cuidar hábitos de sueño
+        # si sueño < 6, recomendar tomar una siesta
         self.sueño = sueño
     
     def Comida(comida):
@@ -57,17 +57,67 @@ class contexto(persona):
         # si es False, recomendar salir a caminar
         self.fisica = fisica
 
-    def Hobbie(hobbie):
-        # input hobbie
-        # qué te gusta hacer en tu tiempo libre?
-        self.hobbie = hobbie
-
     def Recreacion(recreacion):
         # bool = has tenido recreación hoy?
         # si es False, hacer segunda pregunta
         # bool = tienes planificado un tiempo de recreación hoy?
         # si es False, recomendar hacer hobbie
         self.recreacion = recreacion
+
+    def recomendacion(self):
+        # si sueño < 8, recomendar cuidar hábitos de sueño
+        # si sueño < 6, recomendar tomar una siesta
+
+        recomendacion = ''
+
+        if self.sueño != -1.0:
+            assert type(self.sueño) == float
+
+            if self.sueño < 6:
+                recomendacion = recomendacion + 'Ve a tomar una merecida siesta para reponer energías'
+            elif self.sueño < 8:
+                recomendacion = recomendacion + 'Considera cuidar tus hábitos de sueño'
+
+        if self.comida != 0:
+            assert type(self.comida) == str
+
+            if self.comida == 'si':
+                pass
+            elif self.comida == 'no':
+                recomendacion = recomendacion + 'Ve a comer algo rico para reponerte y continuar el día'
+
+        if self.agua != 0:
+            assert type(self.agua) == str
+
+            if self.agua == 'si':
+                pass
+            elif self.agua == 'no':
+                recomendacion = recomendacion + 'Toma agüita (de uwu) para que estés hidratade'
+
+        if self.metas != 0:
+            assert type(self.metas) == str
+
+            if self.metas == 'si':
+                pass
+            elif self.metas == 'no':
+                recomendacion = recomendacion + 'Tómate un rato para reorganizar tu día. Fija sólo una meta que quieras lograr hoy'
+
+        if self.fisica != 0:
+            assert type(self.fisica) == str
+
+            if self.fisica == 'si':
+                pass
+            elif self.fisica == 'no':
+                recomendacion = recomendacion + 'Ve a caminar un rato para estirar las piernas'
+
+        if self.recreacion != 0:
+            assert type(self.recreacion) == str
+            assert type(self.hobbie) == str
+
+            if self.recreacion == 'si':
+                pass
+            elif self.recreacion == 'no':
+                recomendacion = recomendacion + 'Tómate un ratito para ' + self.hobbie + 'y disfrutar'
 
 
 def inputs():
@@ -89,12 +139,17 @@ def inputs():
     f_agua = input('¿Has tomado suficiente agua hoy? (si, no)')
     persona.toma_agua = f_agua
 
+    f_metas = input('¿Vas al día con tus metas de trabajo hoy? (si, no)')
+    persona.cumplido_metas = f_metas
+
     f_fisica = input('¿Has hecho actividad física hoy? (si, no)')
     persona.act_fisica = f_fisica
 
+    f_recreacion = input('¿Has hecho alguna actividad recreativa hoy? (si, no)')
+    persona.recreacion = f_recreacion
+
     color = input('----------------------\n'
                   +'what color do you want for the font? (blue/purple/black/cyan/green/yellow) ')
-    
 
 def imagenes(sentimiento):
        
@@ -126,8 +181,7 @@ def plot(sentimiento):
 
     #cambiar texto por el creado en fun Bday_text
     t = plt.text(0.5, 0.3, 'Hola, como estas' , transform=ax.transAxes, fontsize=25, 
-                     color = 'black', ha='center', va='center') 
+                     color='black', ha='center', va='center') 
     t.set_bbox(dict(facecolor='white', alpha=0.8, edgecolor='white', boxstyle="round"))
     plt.axis('off')
     plt.show()
-
