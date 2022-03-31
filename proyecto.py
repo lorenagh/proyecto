@@ -1,4 +1,10 @@
 import numpy as np
+import pandas as pd
+import urllib.request
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import matplotlib.colors as mcolors
+import os
 
 class persona(object):
     def __init__(self):
@@ -65,10 +71,9 @@ class contexto(persona):
 
 
 def inputs():
-    '''runs the code to display the interacticve 
-       messages and create the card'''
+
     nombre = input('¿Cómo te llamas?')
-    sentimiento = input('¿Cómo te sientes hoy? (feliz, triste, cansad@, enojad@, tranquil@, ansios@) ')
+    sentimiento = input('¿Cómo te sientes hoy? (feliz, triste, cansade, tranquile, ansiose) ')
     hobbie = input('¿Qué te gusta hacer en tu tiempo libre?')
     persona = contexto(nombre, sentimiento, hobbie)
 
@@ -87,8 +92,42 @@ def inputs():
     f_fisica = input('¿Has hecho actividad física hoy? (si, no)')
     persona.act_fisica = f_fisica
 
-    f_recreacion = input('¿Has hecho alguna actividad recreativa hoy? (si, no)')
-    persona.act_fisica = f_fisica
-  
-inputs()
+    color = input('----------------------\n'
+                  +'what color do you want for the font? (blue/purple/black/cyan/green/yellow) ')
+    
+
+def imagenes(sentimiento):
+       
+    links = pd.read_table('imagenes.txt', sep = ' ')
+    links = links[links.sentimiento == sentimiento]
+    return links
+
+
+def plot(sentimiento):
+    links = imagenes(sentimiento).links
+
+    i = np.random.randint(len(links))
+
+    opener = urllib.request.URLopener()
+    opener.addheader('User-Agent', 'whatever')
+    path_hrb = './cute_images/'
+    
+    if (os.path.isdir(path_hrb)==False):
+        os.mkdir(path_hrb)
+        pass
+
+    filename, headers = opener.retrieve(links.iloc[i],path_hrb + "cute_{}.jpg".format(i))
+
+    img = mpimg.imread(path_hrb + "cute_{}.jpg".format(i))
+        
+    cute_img = plt.figure(figsize = (15,15)) 
+    ax = plt.subplot(111)
+    plt.imshow(img)
+
+    #cambiar texto por el creado en fun Bday_text
+    t = plt.text(0.5, 0.3, 'Hola, como estas' , transform=ax.transAxes, fontsize=25, 
+                     color = 'black', ha='center', va='center') 
+    t.set_bbox(dict(facecolor='white', alpha=0.8, edgecolor='white', boxstyle="round"))
+    plt.axis('off')
+    plt.show()
 
