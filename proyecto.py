@@ -13,9 +13,9 @@ class contexto(persona):
     # metas del día
     # actividad física
     # recreación
-    def __init__(self, name, sentimiento):
+    def __init__(self, nombre, sentimiento, hobbie):
         super().__init__()
-        self.name = name  # name of the person
+        self.nombre = nombre # name of the person
         self.sentimiento = sentimiento
         self.sueño = 0
         self.comida = 0
@@ -23,7 +23,7 @@ class contexto(persona):
         self.metas = 0
         self.fisica = 0
         self.recreacion = 0
-        self.hobbie = 0
+        self.hobbie = hobbie
 
     def Sueño(sueño):
         # int = horas de sueño
@@ -62,3 +62,33 @@ class contexto(persona):
         # bool = tienes planificado un tiempo de recreación hoy?
         # si es False, recomendar hacer hobbie
         self.recreacion = recreacion
+
+
+def inputs():
+    '''runs the code to display the interacticve 
+       messages and create the card'''
+    nombre = input('¿Cómo te llamas?')
+    sentimiento = input('¿Cómo te sientes hoy? (feliz, triste, cansad@, enojad@, tranquil@, ansios@) ')
+    hobbie = input('¿Qué te gusta hacer en tu tiempo libre?')
+    persona = contexto(nombre, sentimiento, hobbie)
+
+    print('Responde la siguiente pregunta con un número entero')
+
+    f_sueño = input('¿Cuántas horas dormiste anoche aproximadamente?')
+
+    persona.horas_sueño = f_sueño
+
+    f_comida = input('¿Has comido bien hoy? (si, no)')
+    persona.ha_comido = f_comida
+
+    f_agua = input('¿Has tomado suficiente agua hoy? (si, no)')
+    persona.toma_agua = f_agua
+
+    f_fisica = input('¿Has hecho actividad física hoy? (si, no)')
+    persona.act_fisica = f_fisica
+
+    f_recreacion = input('¿Has hecho alguna actividad recreativa hoy? (si, no)')
+    persona.act_fisica = f_fisica
+  
+inputs()
+
