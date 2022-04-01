@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="selfcare_bot",
+    name="SelfCareBot",
     version="0.0.1",
     author="Lore, Fran y Nico",
     # author_email="autor@ejemplo.com",
