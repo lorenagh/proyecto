@@ -150,8 +150,6 @@ class contexto(persona):
         ax = plt.subplot(111)
         plt.imshow(img)
 
-        print(self.recomendacion())
-
         t = plt.text(0.5, 0.3, self.recomendacion(), transform=ax.transAxes, fontsize=25, 
                         color='black', ha='center', va='center')
         t.set_bbox(dict(facecolor='white', alpha=0.8, edgecolor='white', boxstyle="round"))
@@ -165,10 +163,8 @@ def inputs():
     nombre = input('¿Cómo te llamas?')
     sentimiento = input('¿Cómo te sientes hoy? (feliz, triste, cansade, tranquile, ansiose) ')
     hobbie = input('¿Qué te gusta hacer en tu tiempo libre?')
-    color = input('Cuál es tu color favorito? (blue, green, red, cyan, magenta, yellow, black)')
+    # color = input('Cuál es tu color favorito? (blue, green, red, cyan, magenta, yellow, black)')
     persona = contexto(nombre, sentimiento, hobbie)
-
-    print('Responde la siguiente pregunta con un número entero')
 
     f_sueño = input('¿Cuántas horas dormiste anoche aproximadamente?')
 
