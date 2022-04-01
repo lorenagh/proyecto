@@ -68,56 +68,72 @@ class contexto(persona):
         # si sueño < 8, recomendar cuidar hábitos de sueño
         # si sueño < 6, recomendar tomar una siesta
 
-        recomendacion = ''
+        recomendacion = ' '
 
-        if self.sueño != -1.0:
-            assert type(self.sueño) == float
+        # if self.sueño != -1.0:
+        #assert type(self.sueño) == float
 
-            if self.sueño < 6:
-                recomendacion = recomendacion + 'Ve a tomar una merecida siesta para reponer energías'
-            elif self.sueño < 8:
-                recomendacion = recomendacion + 'Considera cuidar tus hábitos de sueño'
+        rec_sueño = str()
+        '''if self.sueño < 6 and self.sueño > 0:
+            rec_sueño = 'Ve a tomar una merecida siesta para reponer energías'
+        el'''
+        if self.sueño < 8 and self.sueño > 0:
+            rec_sueño = 'Considera cuidar tus hábitos de sueño'
 
-        if self.comida != 0:
-            assert type(self.comida) == str
+        #elif self.comida != 0:
+        #assert type(self.comida) == str
 
-            if self.comida == 'si':
-                pass
-            elif self.comida == 'no':
-                recomendacion = recomendacion + 'Ve a comer algo rico para reponerte y continuar el día'
+        rec_comida = str()
+        '''if self.comida == 'si':
+            pass
+        el'''
+        if self.comida == 'no':
+            rec_comida = 'Ve a comer algo rico para reponerte y continuar el día'
 
-        if self.agua != 0:
-            assert type(self.agua) == str
+        # elif self.agua != 0:
+        #assert type(self.agua) == str
 
-            if self.agua == 'si':
-                pass
-            elif self.agua == 'no':
-                recomendacion = recomendacion + 'Toma agüita (de uwu) para que estés hidratade'
+        rec_agua = str()
+        '''if self.agua == 'si':
+            pass
+        el'''
+        if self.agua == 'no':
+            rec_agua = 'Toma agüita (de uwu) para que estés hidratade'
 
-        if self.metas != 0:
-            assert type(self.metas) == str
+        #elif self.metas != 0:
+        #assert type(self.metas) == str
 
-            if self.metas == 'si':
-                pass
-            elif self.metas == 'no':
-                recomendacion = recomendacion + 'Tómate un rato para reorganizar tu día. Fija sólo una meta que quieras lograr hoy'
+        rec_metas = str()
+        '''if self.metas == 'si':
+            pass
+        el'''
+        if self.metas == 'no':
+            rec_metas = 'Tómate un rato para reorganizar tu día. Fija sólo una meta que quieras lograr hoy'
 
-        if self.fisica != 0:
-            assert type(self.fisica) == str
+        # elif self.fisica != 0:
+        #assert type(self.fisica) == str
 
-            if self.fisica == 'si':
-                pass
-            elif self.fisica == 'no':
-                recomendacion = recomendacion + 'Ve a caminar un rato para estirar las piernas'
+        rec_fisica = str()
+        '''if self.fisica == 'si':
+            pass
+        el'''
+        if self.fisica == 'no':
+            rec_fisica = 'Ve a caminar un rato para estirar las piernas'
 
-        if self.recreacion != 0:
-            assert type(self.recreacion) == str
-            assert type(self.hobbie) == str
+        #elif self.recreacion != 0:
+        #assert type(self.recreacion) == str
+        #assert type(self.hobbie) == str
 
-            if self.recreacion == 'si':
-                pass
-            elif self.recreacion == 'no':
-                recomendacion = recomendacion + 'Tómate un ratito para ' + self.hobbie + ' y disfrutar'
+        rec_recreacion = str()
+        '''if self.recreacion == 'si':
+            pass
+        el'''
+        if self.recreacion == 'no':
+            rec_recreacion = 'Tómate un ratito para ' + self.hobbie + ' y disfrutar'
+
+        recomendacion = rec_sueño + '\n' + rec_agua + '\n' + rec_comida + '\n' + rec_fisica \
+             + '\n' + rec_metas + '\n' + rec_recreacion
+
         return recomendacion
 
     def imagenes(self, sentimiento):
@@ -146,11 +162,16 @@ class contexto(persona):
 
         img = mpimg.imread(path_hrb + "cute_{}.jpg".format(i))
             
-        cute_img = plt.figure(figsize = (15,15)) 
+        cute_img = plt.figure(figsize = (7, 7)) 
         ax = plt.subplot(111)
         plt.imshow(img)
 
-        t = plt.text(0.5, 0.3, self.recomendacion(), transform=ax.transAxes, fontsize=25, 
+        print('   ')
+        print('-------------------')
+        print('   ')
+        print(self.recomendacion())
+
+        t = plt.text(0.5, 0.3, self.recomendacion(), transform=ax.transAxes, fontsize=15, 
                         color='black', ha='center', va='center')
         t.set_bbox(dict(facecolor='white', alpha=0.8, edgecolor='white', boxstyle="round"))
         plt.axis('off')
