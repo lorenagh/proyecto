@@ -70,70 +70,40 @@ class contexto(persona):
 
         recomendacion = ' '
 
-        # if self.sueño != -1.0:
-        #assert type(self.sueño) == float
-
         rec_sueño = str()
-        '''if self.sueño < 6 and self.sueño > 0:
-            rec_sueño = 'Ve a tomar una merecida siesta para reponer energías'
-        el'''
-        if self.sueño < 8 and self.sueño > 0:
+        if np.float64(self.sueño) < 8 and np.float64(self.sueño) > 0:
+            assert type(self.sueño) == float
             rec_sueño = 'Considera cuidar tus hábitos de sueño'
 
-        #elif self.comida != 0:
-        #assert type(self.comida) == str
-
         rec_comida = str()
-        '''if self.comida == 'si':
-            pass
-        el'''
         if self.comida == 'no':
+            assert type(self.comida) == str
             rec_comida = 'Ve a comer algo rico para reponerte y continuar el día'
 
-        # elif self.agua != 0:
-        #assert type(self.agua) == str
-
         rec_agua = str()
-        '''if self.agua == 'si':
-            pass
-        el'''
         if self.agua == 'no':
+            rec_agua = str()
             rec_agua = 'Toma agüita (de uwu) para que estés hidratade'
 
-        #elif self.metas != 0:
-        #assert type(self.metas) == str
-
         rec_metas = str()
-        '''if self.metas == 'si':
-            pass
-        el'''
         if self.metas == 'no':
-            rec_metas = 'Tómate un rato para reorganizar tu día. Fija sólo una meta que quieras lograr hoy'
-
-        # elif self.fisica != 0:
-        #assert type(self.fisica) == str
+            assert type(self.metas) == str
+            rec_metas = 'Tómate un rato para reorganizar tu día. \nFija sólo una meta que quieras lograr hoy'
 
         rec_fisica = str()
-        '''if self.fisica == 'si':
-            pass
-        el'''
         if self.fisica == 'no':
+            assert type(self.fisica) == str
             rec_fisica = 'Ve a caminar un rato para estirar las piernas'
 
-        #elif self.recreacion != 0:
-        #assert type(self.recreacion) == str
-        #assert type(self.hobbie) == str
-
         rec_recreacion = str()
-        '''if self.recreacion == 'si':
-            pass
-        el'''
         if self.recreacion == 'no':
+            assert type(self.recreacion) == str
+            assert type(self.hobbie) == str
             rec_recreacion = 'Tómate un ratito para ' + self.hobbie + ' y disfrutar'
 
         recomendacion = rec_sueño + '\n' + rec_agua + '\n' + rec_comida + '\n' + rec_fisica \
              + '\n' + rec_metas + '\n' + rec_recreacion
-
+        
         return recomendacion
 
     def imagenes(self, sentimiento):
@@ -162,7 +132,7 @@ class contexto(persona):
 
         img = mpimg.imread(path_hrb + "cute_{}.jpg".format(i))
             
-        cute_img = plt.figure(figsize = (7, 7)) 
+        cute_img = plt.figure(figsize = (10, 15)) 
         ax = plt.subplot(111)
         plt.imshow(img)
 
@@ -171,7 +141,7 @@ class contexto(persona):
         print('   ')
         print(self.recomendacion())
 
-        t = plt.text(0.5, 0.3, self.recomendacion(), transform=ax.transAxes, fontsize=15, 
+        t = plt.text(0.5, -0.1, self.recomendacion(), transform=ax.transAxes, fontsize=12, 
                         color='black', ha='center', va='center')
         t.set_bbox(dict(facecolor='white', alpha=0.8, edgecolor='white', boxstyle="round"))
         plt.axis('off')
@@ -189,19 +159,19 @@ def inputs():
 
     f_sueño = input('¿Cuántas horas dormiste anoche aproximadamente?')
 
-    persona.horas_sueño = f_sueño
+    persona.sueño = f_sueño
 
     f_comida = input('¿Has comido bien hoy? (si, no)')
-    persona.ha_comido = f_comida
+    persona.comida = f_comida
 
     f_agua = input('¿Has tomado suficiente agua hoy? (si, no)')
-    persona.toma_agua = f_agua
+    persona.agua = f_agua
 
     f_metas = input('¿Vas al día con tus metas de trabajo hoy? (si, no)')
-    persona.cumplido_metas = f_metas
+    persona.metas = f_metas
 
     f_fisica = input('¿Has hecho actividad física hoy? (si, no)')
-    persona.act_fisica = f_fisica
+    persona.fisica = f_fisica
 
     f_recreacion = input('¿Has hecho alguna actividad recreativa hoy? (si, no)')
     persona.recreacion = f_recreacion
