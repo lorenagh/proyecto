@@ -1,0 +1,14 @@
+.DS_Store
+LICENSE
+README.md
+imagenes.txt
+proyecto.py
+setup.py
+cute_images/cute_0.jpg
+cute_images/cute_1.jpg
+cute_images/cute_2.jpg
+cute_images/cute_3.jpg
+selfcare_bot.egg-info/PKG-INFO
+selfcare_bot.egg-info/SOURCES.txt
+selfcare_bot.egg-info/dependency_links.txt
+selfcare_bot.egg-info/top_level.txt
