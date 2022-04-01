@@ -136,7 +136,9 @@ class contexto(persona):
         t = plt.text(0.5, -0.1, self.recomendacion(), transform=ax.transAxes, fontsize=12, 
                         color=self.color, ha='center', va='center')
         t.set_bbox(dict(facecolor='white', alpha=0.8, edgecolor='white', boxstyle="round"))
+
         plt.axis('off')
+        
         plt.show()
 
 
