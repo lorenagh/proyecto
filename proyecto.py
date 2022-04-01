@@ -147,7 +147,7 @@ def inputs():
     nombre = input('¿Cómo te llamas?  ')
     sentimiento = input('¿Cómo te sientes hoy? (feliz, triste, cansade, tranquile, ansiose)  ')
     hobbie = input('¿Qué te gusta hacer en tu tiempo libre?  ')
-    color = input('Cuál es tu color favorito? (blue, green, red, magenta, black)  ')
+    color = input('¿Cuál es tu color favorito? (blue, green, red, magenta, black)  ')
     persona = contexto(nombre, sentimiento, hobbie, color)
 
     f_sueño = input('¿Cuántas horas dormiste anoche aproximadamente?  ')
